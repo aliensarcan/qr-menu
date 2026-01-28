@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Usta Dönerci Menü</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+header {
+    background: linear-gradient(135deg, #b30000, #7a0000);
+    text-align: center;
+    padding: 20px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* BUTONLAR */
+.menu-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 8px 10px 4px; /* 🔥 ALT BOŞLUK AZALTILDI */
+}
+
+.menu-buttons button {
+    flex: 1;
+    padding: 14px 8px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    background-color: #b30000;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.menu-buttons button.active {
+    background-color: #ff1a1a;
+}
+
+/* MENÜ ALANI */
+.menu-section {
+    padding: 0 10px 10px; /* 🔥 ÜST BOŞLUK SIFIR */
+    display: none;
+}
+
+.menu-section.active {
+    display: block;
+}
+
+.menu-image {
+    width: 100%;
+    max-height: calc(100vh - 220px); /* 🔥 BUTONLARA YAKLAŞTIRDIK */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    color: #aaa;
+    background-color: #000;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 DÜRÜMHAN 🔥</h1>
+</header>
+
+<div class="menu-buttons">
+    <button id="btnTavuk" class="active" onclick="showMenu('tavuk')">🍗 Tavuk Dönerler</button>
+    <button id="btnEt" onclick="showMenu('et')">🥩 Et Dönerler</button>
+</div>
+
+<div id="menuTavuk" class="menu-section active">
+    <img src="menu1.jpeg" alt="Tavuk Döner Menüsü" class="menu-image">
+</div>
+
+<div id="menuEt" class="menu-section">
+    <img src="menu2.jpeg" alt="Et Döner Menüsü" class="menu-image">
+</div>
+
+<footer>
+    Afiyet olsun 😋 | QR Menü
+</footer>
+
+<script>
+function showMenu(type) {
+    const tavukMenu = document.getElementById("menuTavuk");
+    const etMenu = document.getElementById("menuEt");
+    const btnTavuk = document.getElementById("btnTavuk");
+    const btnEt = document.getElementById("btnEt");
+
+    if (type === "tavuk") {
+        tavukMenu.classList.add("active");
+        etMenu.classList.remove("active");
+        btnTavuk.classList.add("active");
+        btnEt.classList.remove("active");
+    } else {
+        etMenu.classList.add("active");
+        tavukMenu.classList.remove("active");
+        btnEt.classList.add("active");
+        btnTavuk.classList.remove("active");
+    }
+
+    window.scrollTo({ top: 0 });
+}
+</script>
+
+</body>
+</html>
